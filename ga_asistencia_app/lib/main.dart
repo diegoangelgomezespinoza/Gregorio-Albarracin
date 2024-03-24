@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ga_asistencia_app/screen/menu_screen.dart';
+import 'package:ga_asistencia_app/screen/register_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'GA App',
       debugShowCheckedModeBanner: false,
-      home: MenuScreen()
+      home: RegisterScreen()
     );
   }
 }
