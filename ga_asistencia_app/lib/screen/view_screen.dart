@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ga_asistencia_app/screen/menu_screen.dart';
 
 void main() => runApp(const ViewScreen());
 
@@ -150,7 +151,9 @@ class ViewScreen extends StatelessWidget {
                         width: 180,
                         child: ElevatedButton(
                           style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),
-                          onPressed: () {}, 
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));
+                          }, 
                           child: Text('ATRAS'),
                         ) 
                       )

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:ga_asistencia_app/screen/menu_screen.dart';
 
 void main() => runApp(const MaterialApp(home: RegisterScreen()));
 
@@ -23,7 +24,9 @@ class RegisterScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));
+                },
                 child: Text(
                   'Regresar',
                   textAlign: TextAlign.left,

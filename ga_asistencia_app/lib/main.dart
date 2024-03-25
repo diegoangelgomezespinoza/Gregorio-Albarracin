@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ga_asistencia_app/screen/filter_screen.dart';
+import 'package:ga_asistencia_app/screen/login_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'GA App',
       debugShowCheckedModeBanner: false,
-      home: FilterScreen()
+      home: LoginScreen()
     );
   }
 }

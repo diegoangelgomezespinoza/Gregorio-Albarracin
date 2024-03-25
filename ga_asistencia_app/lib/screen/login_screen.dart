@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:ga_asistencia_app/screen/menu_screen.dart';
+import 'package:ga_asistencia_app/screen/restart_password.dart';
 
 void main() => runApp(const MaterialApp(home: LoginScreen()));
 
@@ -62,12 +64,16 @@ class LoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> MenuScreen()));
+                },
                 child: Text('Iniciar Sesión'),
               ),
               SizedBox(height: 10),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> RestarPassword()));
+                },
                 child: Text(
                   'Olvidé mi contraseña',
                   textAlign: TextAlign.left,

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ga_asistencia_app/screen/login_screen.dart';
+import 'package:ga_asistencia_app/screen/register_screen.dart';
+import 'package:ga_asistencia_app/screen/view_screen.dart';
 
 void main() => runApp(const MenuScreen());
 
@@ -54,7 +57,9 @@ class MenuScreen extends StatelessWidget {
               width: 400,              
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
-                onPressed: () {}, 
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> RegisterScreen()));
+                }, 
                 child: const Text('REGISTRAR ASISTENCIA'),
                 
               )
@@ -67,7 +72,9 @@ class MenuScreen extends StatelessWidget {
               width: 400,            
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.amberAccent)),
-                onPressed: () {}, 
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ViewScreen()));
+                }, 
                 child: const Text('VISUALIZAR ASISTENCIA'),
                 
               ) 
@@ -81,7 +88,9 @@ class MenuScreen extends StatelessWidget {
               width: 200,              
               child: ElevatedButton(
                 style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),
-                onPressed: () {}, 
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+                }, 
                 child: const Text('CERRAR SESION'),
                 
               ) 
