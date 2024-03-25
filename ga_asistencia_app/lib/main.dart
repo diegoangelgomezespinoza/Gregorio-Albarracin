@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ga_asistencia_app/screen/register_screen.dart';
+import 'package:ga_asistencia_app/screen/filter_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,10 +8,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'GA App',
       debugShowCheckedModeBanner: false,
-      home: RegisterScreen()
+      home: FilterScreen()
     );
   }
 }

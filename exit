@@ -1,0 +1,342 @@
+[1mdiff --git a/ga_asistencia_app/lib/main.dart b/ga_asistencia_app/lib/main.dart[m
+[1mindex 18c50f1..63ac9bc 100644[m
+[1m--- a/ga_asistencia_app/lib/main.dart[m
+[1m+++ b/ga_asistencia_app/lib/main.dart[m
+[36m@@ -1,5 +1,5 @@[m
+ import 'package:flutter/material.dart';[m
+[31m-import 'package:ga_asistencia_app/screen/menu_screen.dart';[m
+[32m+[m[32mimport 'package:ga_asistencia_app/screen/filter_screen.dart';[m
+ [m
+ void main() => runApp(const MyApp());[m
+ [m
+[36m@@ -8,10 +8,10 @@[m [mclass MyApp extends StatelessWidget {[m
+ [m
+   @override[m
+   Widget build(BuildContext context) {[m
+[31m-    return const MaterialApp([m
+[32m+[m[32m    return MaterialApp([m
+       title: 'GA App',[m
+       debugShowCheckedModeBanner: false,[m
+[31m-      home: MenuScreen()[m
+[32m+[m[32m      home: FilterScreen()[m
+     );[m
+   }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/ga_asistencia_app/lib/screen/filter_screen.dart b/ga_asistencia_app/lib/screen/filter_screen.dart[m
+[1mindex e69de29..a710278 100644[m
+[1m--- a/ga_asistencia_app/lib/screen/filter_screen.dart[m
+[1m+++ b/ga_asistencia_app/lib/screen/filter_screen.dart[m
+[36m@@ -0,0 +1,170 @@[m
+[32m+[m[32mimport 'package:flutter/material.dart';[m
+[32m+[m
+[32m+[m[32mvoid main() => runApp(FilterScreen());[m
+[32m+[m
+[32m+[m[32mconst List<String> list = <String>['One', 'Two', 'Three', 'Four'];[m
+[32m+[m
+[32m+[m[32m// ignore: must_be_immutable[m
+[32m+[m[32mclass FilterScreen extends StatelessWidget {[m
+[32m+[m[32m  FilterScreen({super.key});[m
+[32m+[m
+[32m+[m[32m  String? value;[m
+[32m+[m
+[32m+[m[32m  @override[m
+[32m+[m[32m  Widget build(BuildContext context) {[m
+[32m+[m[32m    return Scaffold([m
+[32m+[m[32m      body: Center([m
+[32m+[m[32m        child: Column([m
+[32m+[m[32m          children: [[m
+[32m+[m[32m            const SizedBox( height: 50),[m
+[32m+[m[41m            [m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                    width: 400,[m
+[32m+[m[32m                    height: 80,[m
+[32m+[m[32m                    child: Row([m
+[32m+[m[32m                      mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[32m+[m[32m                      children: [[m
+[32m+[m[41m                                              [m
+[32m+[m[32m                        Container([m
+[32m+[m[32m                          color: Colors.amberAccent,[m
+[32m+[m[32m                          height: 80,[m
+[32m+[m[32m                          width: 120,[m
+[32m+[m[32m                          child: Column([m
+[32m+[m[32m                            children: [[m
+[32m+[m[32m                              const Align([m
+[32m+[m[32m                                alignment: Alignment.bottomLeft,[m
+[32m+[m[32m                                child: Text([m
+[32m+[m[32m                                  'Dia: '[m
+[32m+[m[32m                                )[m
+[32m+[m[32m                              ),[m
+[32m+[m[32m                              DropdownButtonExample()[m
+[32m+[m[32m                            ],[m
+[32m+[m[32m                          ),[m
+[32m+[m[32m                        ),[m
+[32m+[m[41m        [m
+[32m+[m[32m                        Container([m
+[32m+[m[32m                          color: Colors.amberAccent,[m
+[32m+[m[32m                          height: 80,[m
+[32m+[m[32m                          width: 120,[m
+[32m+[m[32m                          child: Column([m
+[32m+[m[32m                            children: [[m
+[32m+[m[32m                              const Align([m
+[32m+[m[32m                                alignment: Alignment.bottomLeft,[m
+[32m+[m[32m                                child: Text([m
+[32m+[m[32m                                  'Mes: '[m
+[32m+[m[32m                                )[m
+[32m+[m[32m                              ),[m
+[32m+[m[32m                              DropdownButtonExample()[m
+[32m+[m[32m                            ],[m
+[32m+[m[32m                          ),[m
+[32m+[m[32m                        ),[m
+[32m+[m[41m        [m
+[32m+[m[41m        [m
+[32m+[m[32m                        Container([m
+[32m+[m[32m                          color: Colors.amberAccent,[m
+[32m+[m[32m                          height: 80,[m
+[32m+[m[32m                          width: 120,[m
+[32m+[m[32m                          child: Column([m
+[32m+[m[32m                            children: [[m
+[32m+[m[32m                              const Align([m
+[32m+[m[32m                                alignment: Alignment.bottomLeft,[m
+[32m+[m[32m                                child: Text([m
+[32m+[m[32m                                  'Año: '[m
+[32m+[m[32m                                )[m
+[32m+[m[32m                              ),[m
+[32m+[m[32m                              DropdownButtonExample()[m
+[32m+[m[32m                            ],[m
+[32m+[m[32m                          ),[m
+[32m+[m[32m                        ),[m
+[32m+[m[32m                      ],[m
+[32m+[m[32m                    ),[m
+[32m+[m[32m                  ),[m
+[32m+[m[41m            [m
+[32m+[m[32m            const SizedBox( height: 15),[m
+[32m+[m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                  width: 200,[m
+[32m+[m[32m                  height: 70,[m
+[32m+[m[32m                  child: Container([m
+[32m+[m[32m                margin: const EdgeInsets.all(15),[m
+[32m+[m[32m                width:  MediaQuery.of(context).size.width - 30,[m
+[32m+[m[32m                child: ElevatedButton([m
+[32m+[m[32m                  onPressed: () {},[m
+[32m+[m[32m                  child: const Text('FILTRAR'),[m
+[32m+[m[32m                ),[m
+[32m+[m[32m              ),[m
+[32m+[m[32m                ),[m
+[32m+[m
+[32m+[m[32m            const SizedBox( height: 15),[m
+[32m+[m[41m            [m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                  width: 400,[m
+[32m+[m[32m                  height: 650,[m
+[32m+[m[32m                  child: Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 100,[m
+[32m+[m[32m                        width: 180[m
+[32m+[m[32m                      ),[m
+[32m+[m[32m                ),[m
+[32m+[m
+[32m+[m[32m            const SizedBox( height: 20),[m
+[32m+[m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                  width: 200,[m
+[32m+[m[32m                  height: 70,[m
+[32m+[m[32m                  child: Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 100,[m
+[32m+[m[32m                        width: 180,[m
+[32m+[m[32m                        child: ElevatedButton([m
+[32m+[m[32m                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),[m
+[32m+[m[32m                          onPressed: () {},[m[41m [m
+[32m+[m[32m                          child: Text('ATRAS'),[m
+[32m+[m[32m                        )[m[41m [m
+[32m+[m[32m                      )[m
+[32m+[m[32m                ),[m
+[32m+[m[32m          ],[m
+[32m+[m[32m        ),[m
+[32m+[m[32m      ),[m
+[32m+[m[32m    );[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass DropdownButtonExample extends StatefulWidget {[m
+[32m+[m[32m  const DropdownButtonExample({super.key});[m
+[32m+[m
+[32m+[m[32m  @override[m
+[32m+[m[32m  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mclass _DropdownButtonExampleState extends State<DropdownButtonExample> {[m
+[32m+[m[32m  String dropdownValue = list.first;[m
+[32m+[m
+[32m+[m[32m  @override[m
+[32m+[m[32m  Widget build(BuildContext context) {[m
+[32m+[m[32m    return DropdownButton<String>([m
+[32m+[m[32m      value: dropdownValue,[m
+[32m+[m[32m      icon: const Icon(Icons.arrow_downward),[m
+[32m+[m[32m      elevation: 16,[m
+[32m+[m[32m      style: const TextStyle(color: Colors.deepPurple),[m
+[32m+[m[32m      underline: Container([m
+[32m+[m[32m        height: 2,[m
+[32m+[m[32m        color: Colors.deepPurpleAccent,[m
+[32m+[m[32m      ),[m
+[32m+[m[32m      onChanged: (String? value) {[m
+[32m+[m[32m        // This is called when the user selects an item.[m
+[32m+[m[32m        setState(() {[m
+[32m+[m[32m          dropdownValue = value!;[m
+[32m+[m[32m        });[m
+[32m+[m[32m      },[m
+[32m+[m[32m      items: list.map<DropdownMenuItem<String>>((String value) {[m
+[32m+[m[32m        return DropdownMenuItem<String>([m
+[32m+[m[32m          value: value,[m
+[32m+[m[32m          child: Text(value),[m
+[32m+[m[32m        );[m
+[32m+[m[32m      }).toList(),[m
+[32m+[m[32m    );[m
+[32m+[m[32m  }[m
+[32m+[m[32m}[m
+\ No newline at end of file[m
+[1mdiff --git a/ga_asistencia_app/lib/screen/view_screen.dart b/ga_asistencia_app/lib/screen/view_screen.dart[m
+[1mindex e69de29..2b72634 100644[m
+[1m--- a/ga_asistencia_app/lib/screen/view_screen.dart[m
+[1m+++ b/ga_asistencia_app/lib/screen/view_screen.dart[m
+[36m@@ -0,0 +1,163 @@[m
+[32m+[m[32mimport 'package:flutter/material.dart';[m
+[32m+[m
+[32m+[m[32mvoid main() => runApp(const ViewScreen());[m
+[32m+[m
+[32m+[m[32mclass ViewScreen extends StatelessWidget {[m
+[32m+[m[32m  const ViewScreen({super.key});[m
+[32m+[m
+[32m+[m[32m  @override[m
+[32m+[m[32m  Widget build(BuildContext context) {[m
+[32m+[m[32m    return Scaffold([m
+[32m+[m[32m      body: Center([m
+[32m+[m[32m        child: Column([m
+[32m+[m[32m          children: [[m
+[32m+[m[32m            const SizedBox( height: 50),[m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                  width: 400,[m
+[32m+[m[32m                  height: 50,[m
+[32m+[m[32m                  child: Row([m
+[32m+[m[32m                    mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[32m+[m[32m                    children: [[m
+[32m+[m[32m                      Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 100,[m
+[32m+[m[32m                        width: 180,[m
+[32m+[m[32m                        child: ElevatedButton([m
+[32m+[m[32m                          onPressed: (){},[m[41m [m
+[32m+[m[32m                          child: const Text('PRIMARIA')[m
+[32m+[m[32m                        )[m
+[32m+[m[32m                      ),[m
+[32m+[m
+[32m+[m[32m                      const SizedBox( width: 15),[m
+[32m+[m
+[32m+[m[32m                      Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 100,[m
+[32m+[m[32m                        width: 180,[m
+[32m+[m[32m                        child: ElevatedButton([m
+[32m+[m[32m                          onPressed: (){},[m[41m [m
+[32m+[m[32m                          child: const Text('SECUNDARIA')[m
+[32m+[m[32m                        )[m
+[32m+[m[32m                      )[m
+[32m+[m[32m                    ],[m
+[32m+[m[32m                  ),[m
+[32m+[m[32m                ),[m
+[32m+[m[32m            const SizedBox( height: 20),[m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                  width: 400,[m
+[32m+[m[32m                  height: 50,[m
+[32m+[m[32m                  child: Row([m
+[32m+[m[32m                    mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[32m+[m[32m                    children: [[m
+[32m+[m[32m                      Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 100,[m
+[32m+[m[32m                        width: 110,[m
+[32m+[m[32m                        child: ElevatedButton([m
+[32m+[m[32m                          onPressed: (){},[m[41m [m
+[32m+[m[32m                          child: const Text('NOMBRE')[m
+[32m+[m[32m                        )[m
+[32m+[m[32m                      ),[m
+[32m+[m
+[32m+[m[32m                      //const SizedBox( width: 5),[m
+[32m+[m
+[32m+[m[32m                      Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 100,[m
+[32m+[m[32m                        width: 90,[m
+[32m+[m[32m                        child: ElevatedButton([m
+[32m+[m[32m                          onPressed: (){},[m[41m [m
+[32m+[m[32m                          child: const Text('DNI')[m
+[32m+[m[32m                        )[m
+[32m+[m[32m                      ),[m
+[32m+[m
+[32m+[m[32m                      //const SizedBox( width: 15),[m
+[32m+[m[41m                      [m
+[32m+[m[32m                      Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 100,[m
+[32m+[m[32m                        width: 170,[m
+[32m+[m[32m                        child: ElevatedButton([m
+[32m+[m[32m                          onPressed: (){},[m[41m [m
+[32m+[m[32m                          child: const Text('GRADO Y SECCION')[m
+[32m+[m[32m                        )[m
+[32m+[m[32m                      )[m
+[32m+[m[32m                    ],[m
+[32m+[m[32m                  ),[m
+[32m+[m[32m                ),[m
+[32m+[m
+[32m+[m[32m            const SizedBox( height: 20),[m
+[32m+[m[41m            [m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                  width: 400,[m
+[32m+[m[32m                  height: 80,[m
+[32m+[m[32m                  child: Row([m
+[32m+[m[32m                    mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[32m+[m[32m                    children: [[m
+[32m+[m[41m                      [m
+[32m+[m[41m                      [m
+[32m+[m[32m                      Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 80,[m
+[32m+[m[32m                        width: 280,[m
+[32m+[m[32m                        child: Column([m
+[32m+[m[32m                          children: [[m
+[32m+[m[32m                            const Align([m
+[32m+[m[32m                              alignment: Alignment.bottomLeft,[m
+[32m+[m[32m                              child: Text([m
+[32m+[m[32m                                'Ingrese: '[m
+[32m+[m[32m                              )[m
+[32m+[m[32m                            ),[m
+[32m+[m[32m                            TextFormField()[m
+[32m+[m[32m                          ],[m
+[32m+[m[32m                        ),[m
+[32m+[m[32m                      ),[m
+[32m+[m
+[32m+[m[32m                      Container([m
+[32m+[m[32m                        color: Colors.amberAccent,[m
+[32m+[m[32m                        height: 50,[m
+[32m+[m[32m                        width: 100,[m
+[32m+[m[32m                        child: ElevatedButton([m
+[32m+[m[32m                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlueAccent)),[m
+[32m+[m[32m                          onPressed: () {},[m[41m [m
+[32m+[m[32m                          child: const Text('Buscar'),[m
+[32m+[m[32m                        )[m
+[32m+[m[32m                      )[m
+[32m+[m[32m                    ],[m
+[32m+[m[32m                  ),[m
+[32m+[m[32m                ),[m
+[32m+[m[41m            [m
+[32m+[m[32m            const SizedBox( height: 20),[m
+[32m+[m[41m            [m
+[32m+[m[32m            SizedBox([m
+[32m+[m[32m                  width: 400,[m
+[32m+[m[32m                  height: 600,[m
+[32m+[m[32m                  child: Container([m
+[32m+[m[32m   

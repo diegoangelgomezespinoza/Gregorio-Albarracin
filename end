@@ -1,0 +1,370 @@
+[1mdiff --git a/ga_asistencia_app/lib/main.dart b/ga_asistencia_app/lib/main.dart[m
+[1mindex 63ac9bc..18c50f1 100644[m
+[1m--- a/ga_asistencia_app/lib/main.dart[m
+[1m+++ b/ga_asistencia_app/lib/main.dart[m
+[36m@@ -1,5 +1,5 @@[m
+ import 'package:flutter/material.dart';[m
+[31m-import 'package:ga_asistencia_app/screen/filter_screen.dart';[m
+[32m+[m[32mimport 'package:ga_asistencia_app/screen/menu_screen.dart';[m
+ [m
+ void main() => runApp(const MyApp());[m
+ [m
+[36m@@ -8,10 +8,10 @@[m [mclass MyApp extends StatelessWidget {[m
+ [m
+   @override[m
+   Widget build(BuildContext context) {[m
+[31m-    return MaterialApp([m
+[32m+[m[32m    return const MaterialApp([m
+       title: 'GA App',[m
+       debugShowCheckedModeBanner: false,[m
+[31m-      home: FilterScreen()[m
+[32m+[m[32m      home: MenuScreen()[m
+     );[m
+   }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/ga_asistencia_app/lib/screen/filter_screen.dart b/ga_asistencia_app/lib/screen/filter_screen.dart[m
+[1mindex a710278..e69de29 100644[m
+[1m--- a/ga_asistencia_app/lib/screen/filter_screen.dart[m
+[1m+++ b/ga_asistencia_app/lib/screen/filter_screen.dart[m
+[36m@@ -1,170 +0,0 @@[m
+[31m-import 'package:flutter/material.dart';[m
+[31m-[m
+[31m-void main() => runApp(FilterScreen());[m
+[31m-[m
+[31m-const List<String> list = <String>['One', 'Two', 'Three', 'Four'];[m
+[31m-[m
+[31m-// ignore: must_be_immutable[m
+[31m-class FilterScreen extends StatelessWidget {[m
+[31m-  FilterScreen({super.key});[m
+[31m-[m
+[31m-  String? value;[m
+[31m-[m
+[31m-  @override[m
+[31m-  Widget build(BuildContext context) {[m
+[31m-    return Scaffold([m
+[31m-      body: Center([m
+[31m-        child: Column([m
+[31m-          children: [[m
+[31m-            const SizedBox( height: 50),[m
+[31m-            [m
+[31m-            SizedBox([m
+[31m-                    width: 400,[m
+[31m-                    height: 80,[m
+[31m-                    child: Row([m
+[31m-                      mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[31m-                      children: [[m
+[31m-                                              [m
+[31m-                        Container([m
+[31m-                          color: Colors.amberAccent,[m
+[31m-                          height: 80,[m
+[31m-                          width: 120,[m
+[31m-                          child: Column([m
+[31m-                            children: [[m
+[31m-                              const Align([m
+[31m-                                alignment: Alignment.bottomLeft,[m
+[31m-                                child: Text([m
+[31m-                                  'Dia: '[m
+[31m-                                )[m
+[31m-                              ),[m
+[31m-                              DropdownButtonExample()[m
+[31m-                            ],[m
+[31m-                          ),[m
+[31m-                        ),[m
+[31m-        [m
+[31m-                        Container([m
+[31m-                          color: Colors.amberAccent,[m
+[31m-                          height: 80,[m
+[31m-                          width: 120,[m
+[31m-                          child: Column([m
+[31m-                            children: [[m
+[31m-                              const Align([m
+[31m-                                alignment: Alignment.bottomLeft,[m
+[31m-                                child: Text([m
+[31m-                                  'Mes: '[m
+[31m-                                )[m
+[31m-                              ),[m
+[31m-                              DropdownButtonExample()[m
+[31m-                            ],[m
+[31m-                          ),[m
+[31m-                        ),[m
+[31m-        [m
+[31m-        [m
+[31m-                        Container([m
+[31m-                          color: Colors.amberAccent,[m
+[31m-                          height: 80,[m
+[31m-                          width: 120,[m
+[31m-                          child: Column([m
+[31m-                            children: [[m
+[31m-                              const Align([m
+[31m-                                alignment: Alignment.bottomLeft,[m
+[31m-                                child: Text([m
+[31m-                                  'Año: '[m
+[31m-                                )[m
+[31m-                              ),[m
+[31m-                              DropdownButtonExample()[m
+[31m-                            ],[m
+[31m-                          ),[m
+[31m-                        ),[m
+[31m-                      ],[m
+[31m-                    ),[m
+[31m-                  ),[m
+[31m-            [m
+[31m-            const SizedBox( height: 15),[m
+[31m-[m
+[31m-            SizedBox([m
+[31m-                  width: 200,[m
+[31m-                  height: 70,[m
+[31m-                  child: Container([m
+[31m-                margin: const EdgeInsets.all(15),[m
+[31m-                width:  MediaQuery.of(context).size.width - 30,[m
+[31m-                child: ElevatedButton([m
+[31m-                  onPressed: () {},[m
+[31m-                  child: const Text('FILTRAR'),[m
+[31m-                ),[m
+[31m-              ),[m
+[31m-                ),[m
+[31m-[m
+[31m-            const SizedBox( height: 15),[m
+[31m-            [m
+[31m-            SizedBox([m
+[31m-                  width: 400,[m
+[31m-                  height: 650,[m
+[31m-                  child: Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 180[m
+[31m-                      ),[m
+[31m-                ),[m
+[31m-[m
+[31m-            const SizedBox( height: 20),[m
+[31m-[m
+[31m-            SizedBox([m
+[31m-                  width: 200,[m
+[31m-                  height: 70,[m
+[31m-                  child: Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 180,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),[m
+[31m-                          onPressed: () {}, [m
+[31m-                          child: Text('ATRAS'),[m
+[31m-                        ) [m
+[31m-                      )[m
+[31m-                ),[m
+[31m-          ],[m
+[31m-        ),[m
+[31m-      ),[m
+[31m-    );[m
+[31m-  }[m
+[31m-[m
+[31m-}[m
+[31m-[m
+[31m-[m
+[31m-class DropdownButtonExample extends StatefulWidget {[m
+[31m-  const DropdownButtonExample({super.key});[m
+[31m-[m
+[31m-  @override[m
+[31m-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();[m
+[31m-}[m
+[31m-[m
+[31m-class _DropdownButtonExampleState extends State<DropdownButtonExample> {[m
+[31m-  String dropdownValue = list.first;[m
+[31m-[m
+[31m-  @override[m
+[31m-  Widget build(BuildContext context) {[m
+[31m-    return DropdownButton<String>([m
+[31m-      value: dropdownValue,[m
+[31m-      icon: const Icon(Icons.arrow_downward),[m
+[31m-      elevation: 16,[m
+[31m-      style: const TextStyle(color: Colors.deepPurple),[m
+[31m-      underline: Container([m
+[31m-        height: 2,[m
+[31m-        color: Colors.deepPurpleAccent,[m
+[31m-      ),[m
+[31m-      onChanged: (String? value) {[m
+[31m-        // This is called when the user selects an item.[m
+[31m-        setState(() {[m
+[31m-          dropdownValue = value!;[m
+[31m-        });[m
+[31m-      },[m
+[31m-      items: list.map<DropdownMenuItem<String>>((String value) {[m
+[31m-        return DropdownMenuItem<String>([m
+[31m-          value: value,[m
+[31m-          child: Text(value),[m
+[31m-        );[m
+[31m-      }).toList(),[m
+[31m-    );[m
+[31m-  }[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/ga_asistencia_app/lib/screen/view_screen.dart b/ga_asistencia_app/lib/screen/view_screen.dart[m
+[1mindex 2b72634..e69de29 100644[m
+[1m--- a/ga_asistencia_app/lib/screen/view_screen.dart[m
+[1m+++ b/ga_asistencia_app/lib/screen/view_screen.dart[m
+[36m@@ -1,163 +0,0 @@[m
+[31m-import 'package:flutter/material.dart';[m
+[31m-[m
+[31m-void main() => runApp(const ViewScreen());[m
+[31m-[m
+[31m-class ViewScreen extends StatelessWidget {[m
+[31m-  const ViewScreen({super.key});[m
+[31m-[m
+[31m-  @override[m
+[31m-  Widget build(BuildContext context) {[m
+[31m-    return Scaffold([m
+[31m-      body: Center([m
+[31m-        child: Column([m
+[31m-          children: [[m
+[31m-            const SizedBox( height: 50),[m
+[31m-            SizedBox([m
+[31m-                  width: 400,[m
+[31m-                  height: 50,[m
+[31m-                  child: Row([m
+[31m-                    mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[31m-                    children: [[m
+[31m-                      Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 180,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          onPressed: (){}, [m
+[31m-                          child: const Text('PRIMARIA')[m
+[31m-                        )[m
+[31m-                      ),[m
+[31m-[m
+[31m-                      const SizedBox( width: 15),[m
+[31m-[m
+[31m-                      Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 180,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          onPressed: (){}, [m
+[31m-                          child: const Text('SECUNDARIA')[m
+[31m-                        )[m
+[31m-                      )[m
+[31m-                    ],[m
+[31m-                  ),[m
+[31m-                ),[m
+[31m-            const SizedBox( height: 20),[m
+[31m-            SizedBox([m
+[31m-                  width: 400,[m
+[31m-                  height: 50,[m
+[31m-                  child: Row([m
+[31m-                    mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[31m-                    children: [[m
+[31m-                      Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 110,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          onPressed: (){}, [m
+[31m-                          child: const Text('NOMBRE')[m
+[31m-                        )[m
+[31m-                      ),[m
+[31m-[m
+[31m-                      //const SizedBox( width: 5),[m
+[31m-[m
+[31m-                      Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 90,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          onPressed: (){}, [m
+[31m-                          child: const Text('DNI')[m
+[31m-                        )[m
+[31m-                      ),[m
+[31m-[m
+[31m-                      //const SizedBox( width: 15),[m
+[31m-                      [m
+[31m-                      Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 170,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          onPressed: (){}, [m
+[31m-                          child: const Text('GRADO Y SECCION')[m
+[31m-                        )[m
+[31m-                      )[m
+[31m-                    ],[m
+[31m-                  ),[m
+[31m-                ),[m
+[31m-[m
+[31m-            const SizedBox( height: 20),[m
+[31m-            [m
+[31m-            SizedBox([m
+[31m-                  width: 400,[m
+[31m-                  height: 80,[m
+[31m-                  child: Row([m
+[31m-                    mainAxisAlignment: MainAxisAlignment.spaceAround,[m
+[31m-                    children: [[m
+[31m-                      [m
+[31m-                      [m
+[31m-                      Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 80,[m
+[31m-                        width: 280,[m
+[31m-                        child: Column([m
+[31m-                          children: [[m
+[31m-                            const Align([m
+[31m-                              alignment: Alignment.bottomLeft,[m
+[31m-                              child: Text([m
+[31m-                                'Ingrese: '[m
+[31m-                              )[m
+[31m-                            ),[m
+[31m-                            TextFormField()[m
+[31m-                          ],[m
+[31m-                        ),[m
+[31m-                      ),[m
+[31m-[m
+[31m-                      Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 50,[m
+[31m-                        width: 100,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.lightBlueAccent)),[m
+[31m-                          onPressed: () {}, [m
+[31m-                          child: const Text('Buscar'),[m
+[31m-                        )[m
+[31m-                      )[m
+[31m-                    ],[m
+[31m-                  ),[m
+[31m-                ),[m
+[31m-            [m
+[31m-            const SizedBox( height: 20),[m
+[31m-            [m
+[31m-            SizedBox([m
+[31m-                  width: 400,[m
+[31m-                  height: 600,[m
+[31m-                  child: Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 180[m
+[31m-                      ),[m
+[31m-                ),[m
+[31m-[m
+[31m-            const SizedBox( height: 20),[m
+[31m-[m
+[31m-            SizedBox([m
+[31m-                  width: 200,[m
+[31m-                  height: 70,[m
+[31m-                  child: Container([m
+[31m-                        color: Colors.amberAccent,[m
+[31m-                        height: 100,[m
+[31m-                        width: 180,[m
+[31m-                        child: ElevatedButton([m
+[31m-                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all<Color>(Colors.redAccent)),[m
+[31m-                          onPressed: () {}, [m
+[31m-                          child: Text('ATRAS'),[m
+[31m-                        ) [m
+[31m-                      )[m
+[31m-                )[m
+[31m-          ],[m
+[31m-        ),[m
+[31m-      ),[m
+[31m-    );[m
+[31m-  }[m
+[31m-}[m
+\ No newline at end of file[m
